@@ -1,0 +1,79 @@
+Part 1: Set the Scene
+1.  mkdir death_star
+    cd death_star
+    touch darth_vader.txt
+    touch princess_leia.txt
+    touch storm_trooper.txt
+
+2.  cd ..
+    mkdir tatooine
+    cd tatooine
+    touch luke.txt
+    touch ben_kenobi.txt
+
+3.  mkdir millenium_falcon
+    cd millenium_falcon
+    touch han_solo.txt
+    touch chewbaca.txt
+
+Part II: mv - rename
+4.  cd ..
+    mv ben_kenobi.txt obi_wan.txt
+
+Part II: cp - copy
+5.  cd ..
+    cp ./death_star/storm_trooper.txt ./tatooine/storm_trooper.txt
+
+Part IV: mv move
+6.  cd tatooine
+    mv luke.txt millenium_falcon/luke.txt
+    mv obi_wan.txt millenium_falcon/obi_wan.txt
+
+7.  cd .. 
+    mv millenium_falcon ../millenium_falcon
+
+8.  cd ..
+    mv millenium_falcon death_star/millenium_falcon
+
+9. cd death_star
+ mv princess_leia.txt millenium_falcon/princess_leia.txt
+
+ Part V: rm _ remove
+ 10.    cd millenium_falcon
+        rm obi_wan.txt
+
+Part Vi: all together
+11.     cd ..
+        cd ..
+        mkdir yavin_4
+12.     mv death_star/millenium_falcon yavin_4/millenium_falcon
+13.     mkdir yavin_4/x_wing
+14.     cd yavin_4
+        mv millenium_falcon/princess_leia x_wing/princess_leia.txt
+15.     mv x_wing ../
+        mv millenium_falcon ../
+16.     cd death_star
+        mkdir tie_fighter_1 tie_fighter_2 tie_fighter_3
+17.     mv darth_vader.txt tie_fighter_1/darth_vader.txt
+18.     cp storm_trooper.txt tie_fighter_2/storm_trooper.txt
+        cp storm_trooper.txt tie_fighter_3/storm_trooper.txt
+19.     mv tie_fighter_1 ../
+        mv tie_fighter_2 ../
+        mv tie_fighter_3 ../
+20.     cd ..
+        rm -rf tie_fighter_2 tie_fighter_3
+
+Part VIII:
+21.     touch x_wing/the_force.txt
+22.     rm -rf death_star
+23.     mv millenium_falcon yavin_4/millenium_falcon
+        mv x_wing yavin_4/x_wing
+
+
+
+
+    
+
+
+
+
