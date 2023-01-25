@@ -25,7 +25,8 @@
 //     console.log(document.getElementById(i))
 //  }
 
-var usedNums = new Array(76);
+var usedNums = new Array(40);
+newCard();
 
 function newCard() {
 	//Starting loop through each square card
@@ -41,7 +42,10 @@ function setSquare(thisSquare) {
 	var colPlace =new Array(0,1,2,3,4,0,1,2,3,4,0,1,3,4,0,1,2,3,4,0,1,2,3,4);
 	
 	do {
-		newNum =(colPlace[thisSquare] * 15) + getNewNum() + 1;
+		//newNum =(colPlace[thisSquare] * 15) + getNewNum() + 1;
+		//newNum =(colPlace[thisSquare] * 1) + getNewNum();
+		newNum = getNewNum()
+		console.log(newNum)
 	}
 	while (usedNums[newNum]);
 	
@@ -50,7 +54,7 @@ function setSquare(thisSquare) {
 }
 
 function getNewNum() {
-	return Math.floor(Math.random() * 75);
+	return Math.floor(Math.random() * 40);
 	
 }
 
