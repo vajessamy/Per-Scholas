@@ -61,7 +61,7 @@ class Ship{
                console.log('sorry dead')
                target.Killed = true
                btnAttack.disabled = true
-               rotateImg(imgEarthLing, '360deg')
+               rotateImg(imgEarthLing)
                }
                return
             }
@@ -157,8 +157,8 @@ let earthLing = ships.createEarthLing()
 
  
 
- function rotateImg(imageID, degree) {
-        document.querySelector(imageID).style.transform = "rotate(degree)";
+ function rotateImg(imageID, rotation) {
+        document.querySelector(imageID).style.transform = `rotate(${rotation}deg)`";
       }
 
 

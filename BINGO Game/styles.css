@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+body{
+  /* background-image: url("img/depositphotos_38408891-stock-photo-seamless-bingo-balls-background.jpg")  ; */
+    background-color: #0facaa;
+    color: black;
+    padding: 10px 30px 50px 80px;
+    font-size: 28px;
+    font-family: 'Indie Flower', cursive;
+     /* align-content: center;
+    justify-content: center;
+    align-items: center; */
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: center; 
+}
+
+.bimg {
+  /* width: 60px; */
+  height: 5cm;
+}
+ 
+#divBingoNums {
+    /* display: flex; */
+    /* flex-direction: row; */
+    align-items: center; 
+  }
+
+.bingoNumRow  {
+  background-color: DodgerBlue;
+  width: 500px;
+  align-content: center;
+  }
+
+.bingoNums {
+  margin: 2px;
+  padding-top: 1px;  
+  padding-bottom: 1px;
+  /* padding-left: 20px; */
+  font-size: 27px;
+  width: 45px;
+  text-align: center;
+} 
+
+.bingo {
+  margin: 2px;
+  padding-top: 5px;
+  /* padding-left: 20px; */
+  font-size: 27px;
+  width: 35px;
+  text-align: center;
+  color: brown;
+} 
+
+ /* table{  */
+#bingoCard {
+  border-collapse: collapse;
+}
+
+  /* th, td {   */
+ .bingoCardNum {  
+	padding: 10px;
+	border: 2px #666 solid;
+	text-align: center;
+	width: 20%;
+}
+
+#free, .pickedBG {
+	background-color: #f66;
+}
+
+.winningBG {
+/* 	lets set it to flash or blink or something */
+}
+
+
+/* https://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/ */
