@@ -158,7 +158,7 @@ let earthLing = ships.createEarthLing()
  
 
  function rotateImg(imageID, rotation) {
-        document.querySelector(imageID).style.transform = `rotate(${rotation}deg)`";
+        document.querySelector(imageID).style.transform = `rotate(${rotation}deg)`;
       }
 
 
