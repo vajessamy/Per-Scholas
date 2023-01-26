@@ -25,10 +25,38 @@
 //     console.log(document.getElementById(i))
 //  }
 
+//  const td = document.querySelector('td')
+//  td.addEventListener('click', (event) => {
+//  event.target.style.backgroundColor = 'red'
+//  })
+
+
+ function btnClick(btnID) {
+		document.getElementById(btnID).bgColor = '#00FF00'; 
+ }
+
+
+
+
+//btnClick()
+
 var usedNums = new Array(40);
 newCard();
 
+function numClear(){
+	//get all of the elements of the bingoCardNum class
+	const bingoCardNums = document.querySelectorAll('.bingoCardNum');
+	console.log(bingoCardNums)
+	//get each element of the class and change the color back to default
+	for(let bingoCardNum of bingoCardNums) {
+	document.getElementById(bingoCardNum.id).bgColor = '#0facaa'
+	}
+}
+
 function newCard() {
+	//Clear color from the numbers of the Bingo Card and Call Tables
+	numClear();
+
 	//Starting loop through each square card
 	for(var i=0; i < 24; i++) {  //<--always this code for loops. change in red
 		setSquare(i);
@@ -51,10 +79,12 @@ function setSquare(thisSquare) {
 	
 	usedNums[newNum] = true;
 	document.getElementById(currSquare).innerHTML = newNum;
+	//     document.getElementById(currSquare).className = "";
+	//     document.getElementById(currSquare).onmousedown = toggleColor;
 }
 
 function getNewNum() {
-	return Math.floor(Math.random() * 40);
+	return Math.floor(Math.random() * 40) + 1;
 	
 }
 
@@ -66,87 +96,21 @@ function anotherCard() {
 	newCard();
 }
 
+ function toggleColor(evt) {
+ 	if (evt) {
+		var thisSquare = evt.target;
+	}	else {
+		var thisSquare = window.event.srcElement;
+	}
+	if (thisSquare.className == "") {
+		thisSquare.className = "pickedBG";
+	}	else {
+		thisSquare.className = "";
+	}
+	checkWin();
+}
 
-
-
-//window.onload = initAll;
-
-// //creates an array with 40 empty spaces
-// var usedNums = new Array(40);
-// console.log(usedNums.length)
-
-
-// //1st function called
-// function initAll() {
-// 	if (document.getElementById) {
-//  		document.getElementById("reload").onclick = anotherCard;
-//  		newCard();
-// 	}
-// 	else {
-// 		alert("Sorry, your browser doesn't support this script");
-// 	}
-// }
-
-
-// function newCard() {
-// 	for (var i=0; i<24; i++) {
-// 		setSquare(i);
-// 	}
-// }
-
-
-// function setSquare(thisSquare) {
-// 	var currSquare = "square" + thisSquare;
-
-//  	var colPlace = new Array(0,0,0,0,0,1,1,1,1,1,2,2,2,2,3,3,3,3,3,4,4,4,4,4);
-//  	var colBasis = colPlace[thisSquare] * 15;
-//  	var newNum;
-
-// 	do {
-// 		newNum = colBasis + getNewNum() + 1;
-// 	}
-
-
-// 	while (usedNums[newNum]);
-
-//     usedNums[newNum] = true;
-//     document.getElementById(currSquare).innerHTML = newNum;
-//     document.getElementById(currSquare).className = "";
-//     document.getElementById(currSquare).onmousedown = toggleColor;
-// }
-
-
-// function getNewNum() {
-// 	console.log(Math.floor(Math.random()*40))
-//   return Math.floor(Math.random() * 40);
-  
-// }
-// //testing code do not use
-// let bingoNum = getNewNum()
-// console.log(bingoNum)
-
-// function anotherCard() {
-// 	for (var i=1; i<usedNums.length; i++) {
-// 		usedNums[i] = false;
-// 	}
-// 	newCard();
-// 	return false;
-// }
-
-
-// function toggleColor(evt) {
-// 	if (evt) {
-// 		var thisSquare = evt.target;
-// 	}	else {
-// 		var thisSquare = window.event.srcElement;
-// 	}
-// 	if (thisSquare.className == "") {
-// 		thisSquare.className = "pickedBG";
-// 	}	else {
-// 		thisSquare.className = "";
-// 	}
-// 	checkWin();
-// }
+//document.getElementById(currSquare).className = "pickedBG";
 
 
 // function checkWin() {

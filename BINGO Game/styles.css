@@ -4,12 +4,12 @@ body{
   /* background-image: url("img/depositphotos_38408891-stock-photo-seamless-bingo-balls-background.jpg")  ; */
     background-color: #0facaa;
     color: black;
-    padding: 10px 30px 50px 80px;
+    /* padding: 10px 30px 50px 80px; */
     font-size: 28px;
     font-family: 'Indie Flower', cursive;
-     /* align-content: center;
+    /* align-content: center; 
     justify-content: center;
-    align-items: center; */
+    align-items: center;  */
 }
 
 .flexContainer {
@@ -21,18 +21,19 @@ body{
 
 .bimg {
   /* width: 60px; */
-  height: 5cm;
+  margin: 0%;
+  height: 4cm;
 }
  
 #divBingoNums {
-    /* display: flex; */
-    /* flex-direction: row; */
+     display: flex; 
+    flex-direction: row; 
     align-items: center; 
   }
 
 .bingoNumRow  {
   background-color: DodgerBlue;
-  width: 500px;
+  width: 600px;
   align-content: center;
   }
 
@@ -46,23 +47,23 @@ body{
   text-align: center;
 } 
 
-.bingo {
+.bingo, th {
   margin: 2px;
-  padding-top: 5px;
+  padding-top: 1px;
   /* padding-left: 20px; */
   font-size: 27px;
   width: 35px;
   text-align: center;
-  color: brown;
+  color:brown;
 } 
 
  /* table{  */
-#bingoCard {
+#bingoCardTable {
   border-collapse: collapse;
 }
 
   /* th, td {   */
- .bingoCardNum {  
+ .bingoCardNum, th {  
 	padding: 10px;
 	border: 2px #666 solid;
 	text-align: center;
@@ -71,6 +72,9 @@ body{
 
 #free, .pickedBG {
 	background-color: #f66;
+  padding: 10px;
+	text-align: center;
+	width: 20%;
 }
 
 .winningBG {
