@@ -33,8 +33,8 @@
 
  
 
-var usedNums = new Array(41);
-let callNum = new Array(41);
+var usedNums = new Array(40);
+let callNum = new Array(40);
 
 //Create a new card
 newCard();
@@ -135,10 +135,10 @@ function checkWin() {
 
 	for (var i=0; i<24; i++) {
 		var currSquare = "square" + i;
-		// if (document.getElementById(currSquare).className != "") {
-		// 	document.getElementById(currSquare).className = "pickedBG";
-		// 	setSquares = setSquares | Math.pow(2,i);
-		// }
+		 if (document.getElementById(currSquare).className != "") {
+		 	document.getElementById(currSquare).className = "pickedBG";
+		 	setSquares = setSquares | Math.pow(2,i);
+		 }
 	}
 
 	for (var i=0; i<winners.length; i++) {
