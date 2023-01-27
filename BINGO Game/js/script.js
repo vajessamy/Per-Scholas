@@ -33,6 +33,8 @@
 
 var usedNums = new Array(40);
 let callNum = new Array(40);
+let calledNums = new Array(40)
+let callNumTimer = ""
 
 //Create a new card
 newCard();
@@ -63,8 +65,12 @@ function numClear(){
 	  	document.getElementById(calledNum.id).bgColor = 'DodgerBlue'
 	 }
 
+	 //stop the call number timer
+	 clearInterval(callNumTimer)
 	 //clear the last displayed number
 	 document.getElementById("displayBingoNum").innerHTML = ""
+
+	 
 }
 
 function newCard() {
@@ -153,6 +159,7 @@ function anotherCard() {
 
 
 function checkWin() {
+	clearInterval(callNumTimer)
 	var winningOption = -1;
 	var setSquares = 0;
 	var winners = new Array(31,992,15360,507904,541729,557328,1083458,2162820,4329736,8519745,8659472,16252928);
@@ -196,24 +203,22 @@ function checkWin() {
 			}
 		}
 	}
-};
+}
 
 function callBingoNumbers(){
 	let displayNewNum = ""
+	var newBingoNum;
 	
-	// do {
-	// 	//get new Number 
-	// 	let newBingoNum = getNewNum()
-	// 	console.log(newNum)
-	// }
-	//check to see if we Called that number already
-	// while (usedNums[newNum]);
+	do {
+		newBingoNum = getNewNum(60)
+		console.log('newBingoNum = ' + newBingoNum)
+	}
+	while (calledNums[newBingoNum]);
 	
-	// usedNums[newNum] = true;
+	calledNums[newBingoNum] = true;
+	//let newBingoNum = getNewNum(60)
 	
-	let newBingoNum = getNewNum(60)
-	
-	//SWITCH to add B I N G O in front of the number
+	//if statement to add B I N G O in front of the number
 		if (newBingoNum <= 8){
 			displayNewNum = "B" + newBingoNum
 		}
@@ -237,6 +242,10 @@ function callBingoNumbers(){
 	calledBingoNums(newBingoNum)
 	//document.getElementById(newBingoNum).bgColor = '#0facaa'
 
+}
+
+function setCallNumTimer(){
+	callNumTimer = setInterval(callBingoNumbers, 6000)
 }
 
 
