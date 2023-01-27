@@ -31,21 +31,19 @@
 //  })
 
 
- 
-
 var usedNums = new Array(40);
 let callNum = new Array(40);
 
 //Create a new card
 newCard();
 
-function btnClick(BingoNumID) {
+function btnClick(bingoNumID) {
 	//change the color of the called number on the Bingo Card
-	document.getElementById(BingoNumID).bgColor = '#00FF00'; 
+	document.getElementById(bingoNumID).bgColor = '#00FF00'; 
 }
-function CalledBingoNums(NumCalled){
+function calledBingoNums(NumCalled){
 	//change the color of the number that was called on the bingo number table
-	document.getElementById(NumCalled).bgColor = '#00FF00'
+	document.getElementById(NumCalled).bgColor = '#00FF00';
 }
 
 function numClear(){
@@ -65,6 +63,8 @@ function numClear(){
 	  	document.getElementById(calledNum.id).bgColor = 'DodgerBlue'
 	 }
 
+	 //clear the last displayed number
+	 document.getElementById("displayBingoNum").innerHTML = ""
 }
 
 function newCard() {
@@ -86,20 +86,44 @@ function setSquare(thisSquare) {
 	do {
 		//newNum =(colPlace[thisSquare] * 15) + getNewNum() + 1;
 		//newNum =(colPlace[thisSquare] * 1) + getNewNum();
-		newNum = getNewNum()
-		console.log(newNum)
+		newNum = getNewNum(thisSquare)
+		//console.log(newNum)
 	}
 	while (usedNums[newNum]);
 	
 	usedNums[newNum] = true;
+	console.log("currsquare= "+ currSquare)
 	document.getElementById(currSquare).innerHTML = newNum;
 	//  document.getElementById(currSquare).className = "";
 	//document.getElementById(currSquare).onmousedown = toggleColor;
 }
 
-function getNewNum() {
+function getNewNum(i) {
 	//gets a random number starting at 1 going up to 40
-	return Math.floor(Math.random() * 40) + 1;
+	//console.log(i)
+	if (i <= 4){
+		return Math.floor(Math.random() * 8) + 1;
+		console.log('this is a test ' +i)
+	}
+	else if (i <= 9){
+		return Math.floor(Math.random() * 8) + 9;
+		//console.log(`i = ${i} in second if`)
+	}
+	else if (i <= 13){
+		return Math.floor(Math.random() * 8) + 17;
+		//console.log(`i = ${i} in third if`)
+	}
+	else if (i <= 18){
+		return Math.floor(Math.random() * 8) + 25;
+		//console.log(`i = ${i} in fourth if`)
+	}
+	else if (i <= 23){
+		return Math.floor(Math.random() * 8) + 33;
+		console.log('this is a test ' +i)
+	}
+	else {
+		return Math.floor(Math.random() * 40) + 1;
+	}
 	
 }
 
@@ -133,12 +157,29 @@ function checkWin() {
 	var setSquares = 0;
 	var winners = new Array(31,992,15360,507904,541729,557328,1083458,2162820,4329736,8519745,8659472,16252928);
 
+
+	// var bingoArray = [
+	// 	[0, 1, 2, 3, 4],
+	// 	[5, 6, 7, 8, 9],
+	// 	[10, 11, 12, 13],
+	// 	[15. 16, 17, 18],
+	// 	[20, 21, 22, 23, 24],
+	//	[1, 6, 11, 16, 21],
+	// 	[2, 7, 12, 17, 22],
+	// 	[3, 8, 13, 18, 23],
+	// 	[4, 9, 14, 19, 24],
+	// 	[0, 5, 10, 15, 20],
+	// 	[0, 6, 12, 18, 24],
+	// 	[4, 8, 12, 16, 20]
+	// ]
+
+
 	for (var i=0; i<24; i++) {
 		var currSquare = "square" + i;
-		 if (document.getElementById(currSquare).className != "") {
-		 	document.getElementById(currSquare).className = "pickedBG";
-		 	setSquares = setSquares | Math.pow(2,i);
-		 }
+		//  if (document.getElementById(currSquare).className != "") {
+		//  	document.getElementById(currSquare).className = "pickedBG";
+		//  	setSquares = setSquares | Math.pow(2,i);
+		//  }
 	}
 
 	for (var i=0; i<winners.length; i++) {
@@ -157,7 +198,9 @@ function checkWin() {
 	}
 };
 
-function CallBingoNumbers(){
+function callBingoNumbers(){
+	let displayNewNum = ""
+	
 	// do {
 	// 	//get new Number 
 	// 	let newBingoNum = getNewNum()
@@ -168,34 +211,34 @@ function CallBingoNumbers(){
 	
 	// usedNums[newNum] = true;
 	
-	let newBingoNum = getNewNum()
-	document.getElementById("displayBingoNum").innerHTML = newBingoNum
-	document.getElementById(newBingoNum).bgColor = '#0facaa'
+	let newBingoNum = getNewNum(60)
+	
+	//SWITCH to add B I N G O in front of the number
+		if (newBingoNum <= 8){
+			displayNewNum = "B" + newBingoNum
+		}
+		else if (newBingoNum <= 16){
+			displayNewNum = "I" + newBingoNum
+			console.log("testing if else")
+		}
+	  	else if (newBingoNum <= 24){
+			displayNewNum = "N" + newBingoNum
+		}
+		else if (newBingoNum <= 32){
+			displayNewNum = "G" + newBingoNum
+		}
+		else if (newBingoNum <= 40){
+			displayNewNum = "O" + newBingoNum
+		}
+
+	document.getElementById("displayBingoNum").innerHTML = displayNewNum
+	//document.getElementById("displayBingoNum").innerHTML = newBingoNum
+	//function to change the color of the called number
+	calledBingoNums(newBingoNum)
+	//document.getElementById(newBingoNum).bgColor = '#0facaa'
 
 }
 
 
 
-// Footer
-// © 2023 GitHub, Inc.
-// Footer navigation
-// Terms
-// Privacy
-// Security
 
-
-
-// var bingoArray = [
-// 	[1, 2, 3, 4, 5],
-// 	[6, 7, 8, 9, 10],
-// 	[11, 12, 13, 14, 15],
-// 	[16, 17, 18, 19, 20],
-// 	[21, 22, 23, 24, 25],
-// 	[1, 6, 11, 16, 21],
-// 	[2, 7, 12, 17, 22],
-// 	[3, 8, 13, 18, 23],
-// 	[4, 9, 14, 19, 24],
-// 	[5, 10, 15, 20, 25],
-// 	[1, 7, 13, 19, 25],
-// 	[5, 9, 13, 17, 21]
-// ]
