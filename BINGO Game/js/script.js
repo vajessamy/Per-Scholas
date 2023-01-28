@@ -32,6 +32,7 @@
 
 
 var usedNums = new Array(40);
+let usedNumsPlayer2 = new Array(40)
 let callNum = new Array(40);
 let calledNums = new Array(40)
 let callNumTimer = ""
@@ -69,8 +70,6 @@ function numClear(){
 	 clearInterval(callNumTimer)
 	 //clear the last displayed number
 	 document.getElementById("displayBingoNum").innerHTML = ""
-
-	 
 }
 
 function newCard() {
@@ -81,18 +80,20 @@ function newCard() {
 	for(var i=0; i < 24; i++) {  //<--always this code for loops. change in red
 		setSquare(i);
 	}
+
+	//Starting loop through each square card
+	for(var i=0; i < 24; i++) {  //<--always this code for loops. change in red
+		setSquarePlayer2(i);
+	}
+
 }
 
-function setSquare(thisSquare) {
-	var currSquare = "square"+thisSquare;
+function setSquare(squareNumber) {
+	var currSquare = "square"+ squareNumber;
 	var newNum;
 	
-	var colPlace =new Array(0,1,2,3,4,0,1,2,3,4,0,1,3,4,0,1,2,3,4,0,1,2,3,4);
-	
 	do {
-		//newNum =(colPlace[thisSquare] * 15) + getNewNum() + 1;
-		//newNum =(colPlace[thisSquare] * 1) + getNewNum();
-		newNum = getNewNum(thisSquare)
+		newNum = getNewNum(squareNumber)
 		//console.log(newNum)
 	}
 	while (usedNums[newNum]);
@@ -100,8 +101,6 @@ function setSquare(thisSquare) {
 	usedNums[newNum] = true;
 	console.log("currsquare= "+ currSquare)
 	document.getElementById(currSquare).innerHTML = newNum;
-	//  document.getElementById(currSquare).className = "";
-	//document.getElementById(currSquare).onmousedown = toggleColor;
 }
 
 function getNewNum(i) {
@@ -136,6 +135,7 @@ function getNewNum(i) {
 function anotherCard() {
 	for(var i=1; i<usedNums.length; i++) {
 	usedNums[i] = false;
+	usedNumsPlayer2[i] = false;
 	}
 	
 	newCard();
@@ -154,9 +154,6 @@ function anotherCard() {
 	}
 	checkWin();
 }
-
-//document.getElementById(currSquare).className = "pickedBG";
-
 
 function checkWin() {
 	clearInterval(callNumTimer)
@@ -248,6 +245,22 @@ function setCallNumTimer(){
 	callNumTimer = setInterval(callBingoNumbers, 6000)
 }
 
+// ***********************Player 2 code************************
 
+function setSquarePlayer2(squareNumber) {
+	var currSquare = "player"+ squareNumber;
+	var newNum;
+	
+	do {
+		newNum = getNewNum(squareNumber)
+		//console.log(newNum)
+	}
+	while (usedNumsPlayer2[newNum]);
+	console.log(currSquare)
+	
+	usedNumsPlayer2[newNum] = true;
+	console.log("currsquare= "+ currSquare)
+	document.getElementById(currSquare).innerHTML = newNum;
+}
 
 
