@@ -4,38 +4,14 @@ body{
   /* background-image: url("img/depositphotos_38408891-stock-photo-seamless-bingo-balls-background.jpg")  ; */
     background-color: #0facaa;
     color: black;
-    padding: 0px 0px 0px 80px; 
-    font-size: 28px;
+    font-size: 27px;
     font-family: 'Indie Flower', cursive;
-    /* align-content: center; 
-    justify-content: center;
-    align-items: center;  */
-}
+    }
 
-.flexContainer {
-  display: flex;
-  flex-direction: column;
-  align-items:flex-start;
-  justify-content: center;
-  position:absolute;
-
-
-
-
-}
-
-.bimg {
-  /* width: 60px; */
-  margin: 0%;
-  height: 4cm;
+#bingoNumTable {
+  margin: 40PX;
 }
  
-#divBingoNums {
-     /* display: flex;  */
-    /* flex-direction: row;  */
-    align-items: center; 
-  }
-
 .bingoNumRow  {
   background-color: DodgerBlue;
   width: 600px;
@@ -43,10 +19,9 @@ body{
   }
 
 .bingoNums {
-  margin: 2px;
-  padding-top: 1px;  
-  padding-bottom: 1px;
-  /* padding-left: 20px; */
+  margin: 0px;
+  padding-top: 0px;  
+  padding-bottom: 0px;
   font-size: 27px;
   width: 45px;
   text-align: center;
@@ -55,28 +30,30 @@ body{
 .bingo, th {
   margin: 2px;
   padding-top: 1px;
-  /* padding-left: 20px; */
   font-size: 27px;
+  font-weight: 800;
   width: 35px;
   text-align: center;
   color:brown;
 } 
 
- /* table{  */
 #bingoCardTable, #bingoCardTable2 {
   border-collapse: collapse;
 }
 #cardTables{
+  display: flex;
   flex-direction: row;
-  display: block;
+  align-items:flex-start;
+  justify-content: center
 }
 
   /* th, td {   */
  .bingoCardNum, th {  
 	padding: 20px;
+  font-weight: 500;
 	border: 2px #666 solid;
 	text-align: center;
-	width: 20%;
+	width: 19px;
 }
 
 #free, .pickedBG {
@@ -88,6 +65,8 @@ body{
 
 button{
    font-family: 'Indie Flower', cursive;
+   font-weight: 500;
+   font-size: 27px;
 }
 
 .winningBG {

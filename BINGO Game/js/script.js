@@ -24,7 +24,6 @@
 //     document.getElementById(tblNumRowID).appendChild(tblNum);
 //     console.log(document.getElementById(i))
 //  }
-
 //  const td = document.querySelector('td')
 //  td.addEventListener('click', (event) => {
 //  event.target.style.backgroundColor = 'red'
@@ -238,6 +237,7 @@ function callBingoNumbers(){
 	//function to change the color of the called number
 	calledBingoNums(newBingoNum)
 	//document.getElementById(newBingoNum).bgColor = '#0facaa'
+	markSecondCard(newBingoNum)
 
 }
 
@@ -258,9 +258,20 @@ function setSquarePlayer2(squareNumber) {
 	while (usedNumsPlayer2[newNum]);
 	console.log(currSquare)
 	
-	usedNumsPlayer2[newNum] = true;
+	// usedNumsPlayer2[newNum] = true;
+	usedNumsPlayer2[newNum] = currSquare;
 	console.log("currsquare= "+ currSquare)
 	document.getElementById(currSquare).innerHTML = newNum;
 }
+
+function markSecondCard(calledNumber){
+	var markSquare = usedNumsPlayer2[calledNumber]
+	if (markSquare != null){
+		document.getElementById(markSquare).bgColor = '#00FF00'; 
+	}
+	
+}
+
+
 
 
