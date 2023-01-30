@@ -48,19 +48,22 @@ body{
 }
 
   /* th, td {   */
- .bingoCardNum, th {  
+.bingoCardNum, th {  
 	padding: 20px;
   font-weight: 500;
 	border: 2px #666 solid;
 	text-align: center;
 	width: 19px;
+  height: 19px;
+  background-color: #0facaa; 
 }
 
-#free, .pickedBG {
+#free, .pickedNum, .pickedNum2 {
 	background-color: #f66;
   padding: 10px;
 	text-align: center; 
 	width: 20%;
+  border: 2px #666 solid;
 }
 
 button{

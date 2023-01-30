@@ -8,32 +8,35 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="js/script.js"></script>
     <style>
+           
+            #divTables{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            }
+            #belowTables{
+                justify-content: center;
+                flex-direction: column;
+            }
+            #divBtns{
+                flex-direction: row;
+                /* padding: 65px; */
+            }
+          
             .bingoImg {
                 display: flex;
                 margin: 0%;
                 height: 4cm;
                 justify-content: center;
             }
-           #divtables{
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            }
-            #belowtables{
-                justify-content: center;
-                flex-direction: column;
-            }
-            #divBtns{
-                flex-direction: row;
-            }
-          
-           
+            
+            
     </style>
 <body>
     <div class="bingoImg" >
         <img src="img/Bingo-Balls.png">
     </div>
-        <div id="divtables">
+        <div id="divTables">
             <table id="bingoCardTable2">
                 <tr>
                     <th>B</th>
@@ -78,7 +81,7 @@
                     <td class="bingoCardNum" id ="player23"onclick="btnClick(this.id)">&nbsp;</td>
                 </tr>
             </table>
-            <div id="belowtables">
+            <div id="belowTables">
                 <table id="bingoNumTable">
                     <tr class="bingoNumRow">
                         <td class="bingo" > B</td>
@@ -137,14 +140,14 @@
                     </tr> 
                 </table>
            
-                <h2>Lets <a href="#" onclick="setCallNumTimer()">Play</a> BINGO</h2>
+                <h2 >Lets <a href="#" onclick="setCallNumTimer()">Play</a> BINGO</h2>
                 <!-- display for the called bing numbers -->
                 <h1 id="displayBingoNum"></h1>
                 <!-- <p><a href="#" onclick="anotherCard()">Click here</a> to create a new card</p> -->
                 <div id="divBtns">
                     <button onclick="numClear()">Clear Card</button> 
                     <button onclick="anotherCard()">New Card</button>
-                    <button onclick="checkWin()">BINGO</button>
+                    <button onclick="checkWin('square')">BINGO</button>
                     <!-- <button onclick="callBingoNumbers()">Get a Num</button> -->
                 </div>
             </div>
