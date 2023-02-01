@@ -32,7 +32,7 @@ let usedNums = new Array(40);
 let usedNumsPlayer2 = new Array(40)
 let callNum = new Array(40);
 let calledNums = new Array(40)
-let callNumTimer = ""
+let callNumTimer
 
 //center buttons and call number and play under the called number table
 	document.getElementById('belowTables').style.textAlign = "center";
@@ -188,10 +188,9 @@ function checkWin() {
 								console.log(`matchingNumber = ${matchingNumbers} i = ${i} and bingoWays length = ${bingoWays.length-1}`)
 								
 								if((i  == bingoWays.length-1) && (matchingNumbers == bingoWays.length)){
-								//((matchingNumbers ==5) || (matchingNumbers == 4))){
-									console.log(`message 2 matchingNumber = ${matchingNumbers} and bingoWays.length ${bingoWays.length}`)
+										console.log(`message 2 matchingNumber = ${matchingNumbers} and bingoWays.length ${bingoWays.length}`)
 										document.getElementById("displayBingoNum").innerHTML = "WINNER"
-										readOutLoud('winner')
+										readOutLoud('winner WINNER CHICKEN DINNER')
 										matchingNumbers = 0
 										winner = true;
 										break;
@@ -201,17 +200,16 @@ function checkWin() {
 										//continue
 									//}
 								}
-								
-
 							}
 					}
 			}
 		}
 		if (winner == false){
-			document.getElementById("displayBingoNum").innerHTML = "False Bingo"
-			readOutLoud('false bingo')	
+			document.getElementById("displayBingoNum").innerHTML = "False BINGO"
+			readOutLoud('False BINGO')	
 			setCallNumTimer()
 		}
+		//checkWin2() 
 }
 
 function callBingoNumbers(){
@@ -225,7 +223,6 @@ function callBingoNumbers(){
 	while (calledNums[newBingoNum]);
 	
 	calledNums[newBingoNum] = true;
-	//let newBingoNum = getNewNum(60)
 	
 	//if statement to add B I N G O in front of the number
 		if (newBingoNum <= 8){
@@ -298,8 +295,16 @@ function markSecondCard(calledNumber){
 		console.log('marksquare = ' + markSquare)
 		// document.getElementById(markSquare).bgColor = '#00FF00'; 
 		document.getElementById(markSquare).className = 'pickedNum2';
+		checkWin2();
 	}
-	
+}
+
+function anotherCard() {
+	for(var i=1; i<usedNums.length; i++) {
+	usedNums[i] = false;
+	usedNumsPlayer2[i] = false;
+	}
+	newCard();
 }
 
 function checkWin2() {
@@ -308,8 +313,7 @@ function checkWin2() {
 	var setSquares = 0;
 	let matchingNumbers = 0
 	let winner = false
-	// var winners = new Array(31,992,15360,507904,541729,557328,1083458,2162820,4329736,8519745,8659472,16252928);
-
+	//array of the spacenumbers for bingo
 	var bingoArray = [
 		[0, 1, 2, 3, 4],
 		[5, 6, 7, 8, 9],
@@ -338,18 +342,17 @@ function checkWin2() {
 					for(x = 0; x <= bingoCardNums.length-1; x++) {
 						//console.log(`bingoWays = ${bingoWays[i]} bingocardnum = ${bingoCardNums[x].id}`)
 						//match the id for each square with the number representing the square in ways
-							if ('player2' + bingoWays[i] == bingoCardNums[x].id ){
+							if ('player' + bingoWays[i] == bingoCardNums[x].id ){
 								matchingNumbers += 1
 								console.log(`matchingNumber = ${matchingNumbers} i = ${i} and bingoWays length = ${bingoWays.length-1}`)
 								
 								if((i  == bingoWays.length-1) && (matchingNumbers == bingoWays.length)){
-								//((matchingNumbers ==5) || (matchingNumbers == 4))){
-									console.log(`message 2 matchingNumber = ${matchingNumbers} and bingoWays.length ${bingoWays.length}`)
-										clearInterval(callNumTimer)
-										document.getElementById("displayBingoNum").innerHTML = "Computer Wins! You Lose!"
-										readOutLoud('I win! You Lose!')
+										console.log(`message 2 matchingNumber = ${matchingNumbers} and bingoWays.length ${bingoWays.length}`)
+										document.getElementById("displayBingoNum").innerHTML = "BINGO Computer Wins."
+										readOutLoud('BINGO Computer Wins')
 										matchingNumbers = 0
 										winner = true;
+										clearInterval(callNumTimer)
 										break;
 									//}
 									//else {
@@ -357,12 +360,8 @@ function checkWin2() {
 										//continue
 									//}
 								}
-								
-
 							}
 					}
 			}
 		}
-}
-
-
+		}
