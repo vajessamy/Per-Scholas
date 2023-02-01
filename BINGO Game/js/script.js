@@ -1,32 +1,3 @@
-//  let x = 0
-//  let tblNumRowID = ""
-//  for (let  i = 1;  i < 41;  i++) {
-//     if((i == 1) || (i == 9) || (i ==17) || (i == 25) || (i == 33)) {
-//       x += 1
-//       const tblNumRow = document.createElement('tr')
-//       tblNumRow.classname = "bingoNumRow";
-//       tblNumRow.id = "tblRow" + x ;
-//       tblNumRowID = "tblRow" + x;
-//       tblNumRow.style.backgroundColor = "DodgerBlue";
-//       document.getElementById("bingoNumTable").appendChild(tblNumRow)
-//       console.log(tblNumRow)
-//     } 
-         
-//     const tblNum = document.createElement("td");
-//     tblNum.classname = "bingoNums";
-//     tblNum.id = i;
-//     tblNum.innerText = i;
-//     tblNum.style.fontSize = '27px'
-//     tblNum.style.paddingLeft = '20px'
-//     tblNum.style.paddingtop = "10px"
-//     tblNum.style.width = '40px'
-//     document.getElementById(tblNumRowID).appendChild(tblNum);
-//     console.log(document.getElementById(i))
-//  }
-//  const td = document.querySelector('td')
-//  td.addEventListener('click', (event) => {
-//  event.target.style.backgroundColor = 'red'
-//  })
 
 let usedNums = new Array(40);
 let usedNumsPlayer2 = new Array(40)
@@ -44,6 +15,13 @@ function btnClick(bingoNumID) { //btnClick is called from index.html and id is p
 	//change the color of the called number on the Bingo Card by changing the classname
 		// document.getElementById(bingoNumID).bgColor = '#00FF00'; 
 		document.getElementById(bingoNumID).className = 'pickedNum';
+		document.getElementById(bingoNumID).style.textAlign = "center";
+}
+
+function clearSquare(bingoNumID) { //btnClick is called from index.html and id is passed to javascript function
+	//change the color of the called number on the Bingo Card by changing the classname
+		// document.getElementById(bingoNumID).bgColor = '#00FF00'; 
+		document.getElementById(bingoNumID).className = 'bingoCardNum';
 		document.getElementById(bingoNumID).style.textAlign = "center";
 }
 
@@ -209,7 +187,7 @@ function checkWin() {
 			readOutLoud('False BINGO')	
 			setCallNumTimer()
 		}
-		//checkWin2() 
+		 
 }
 
 function callBingoNumbers(){
@@ -245,24 +223,23 @@ function callBingoNumbers(){
 		document.getElementById("displayBingoNum").innerHTML = displayNewNum
 	//read the call number out loud
 		readOutLoud(displayNewNum)
-	//document.getElementById("displayBingoNum").innerHTML = newBingoNum
 	//function to change the color of the called number
 		calledBingoNums(newBingoNum)
 	//document.getElementById(newBingoNum).bgColor = '#0facaa'
 		markSecondCard(newBingoNum)
-	//	checkWin2()
+	
 }
 
 function readOutLoud(message) {
 	var speech = new SpeechSynthesisUtterance();
   
 	// Set the text and voice attributes.
-	speech.text = message;
-	speech.volume = 1;
-	speech.rate = 1;
-	speech.pitch = 1;
-  
-	window.speechSynthesis.speak(speech);
+		speech.text = message;
+		speech.volume = 1;
+		speech.rate = 1;
+		speech.pitch = 1;
+	
+		window.speechSynthesis.speak(speech);
   }
 
 function setCallNumTimer(){
@@ -314,20 +291,20 @@ function checkWin2() {
 	let matchingNumbers = 0
 	let winner = false
 	//array of the spacenumbers for bingo
-	var bingoArray = [
-		[0, 1, 2, 3, 4],
-		[5, 6, 7, 8, 9],
-		[10, 11, 12, 13],
-		[14, 15, 16, 17, 18],
-		[19, 20, 21, 22, 23],
-		[0, 5, 10, 14, 19],
-		[1, 6, 11, 15, 20],
-		[2, 7, 16, 21],
-		[3, 8, 12, 17, 22],
-		[4, 9, 13, 18, 23],
-		[0, 6, 17, 23],
-		[4, 8, 15, 19]
-	]
+		var bingoArray = [
+			[0, 1, 2, 3, 4],
+			[5, 6, 7, 8, 9],
+			[10, 11, 12, 13],
+			[14, 15, 16, 17, 18],
+			[19, 20, 21, 22, 23],
+			[0, 5, 10, 14, 19],
+			[1, 6, 11, 15, 20],
+			[2, 7, 16, 21],
+			[3, 8, 12, 17, 22],
+			[4, 9, 13, 18, 23],
+			[0, 6, 17, 23],
+			[4, 8, 15, 19]
+		]
 	
 	//get the array of arrays of ways to get bingo
 		for(let bingoWays of bingoArray){
@@ -364,4 +341,4 @@ function checkWin2() {
 					}
 			}
 		}
-		}
+	}
