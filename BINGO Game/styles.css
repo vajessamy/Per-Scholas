@@ -27,6 +27,17 @@ body{
   text-align: center;
 } 
 
+.bingoNumsCalled{
+  margin: 0px;
+  padding-top: 0px;  
+  padding-bottom: 0px;
+  font-size: 27px;
+  width: 45px;
+  text-align: center;
+  color: #00FF00;
+
+}
+
 .bingo, th {
   margin: 2px;
   padding-top: 1px;
@@ -77,6 +88,7 @@ button{
 .winningBG {
 /* 	lets set it to flash or blink or something */
 }
+
 
 
 /* https://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/ */
