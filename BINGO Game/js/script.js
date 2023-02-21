@@ -1,7 +1,7 @@
 
 let usedNums = new Array(40);
 let usedNumsPlayer2 = new Array(40)
-//let callNum = new Array(40);
+let callNum = new Array(40);
 let calledNums = new Array(40)
 let callNumTimer
 
@@ -12,8 +12,8 @@ let callNumTimer
 	newCard();
 
 function squareClick(bingoNumID) { //squareClick is called from index.html and id is passed to javascript function
-	//check to see if number was called
-		markNum = document.getElementById(bingoNumID).innerHTML
+	// //check to see if number was called
+	// 	markNum = document.getElementById(bingoNumID).innerHTML
 	//change the color of the called number on the Bingo Card by changing the classname
 		// document.getElementById(bingoNumID).bgColor = '#00FF00'; 
 		document.getElementById(bingoNumID).className = 'pickedNum';
@@ -43,7 +43,7 @@ function numClear(){
 	//get each element of the class and change the color back and classname back to default
 		for(let bingoCardNum of bingoCardNums) {
 			document.getElementById(bingoCardNum.id).className = 'bingoCardNum'
-			//document.getElementById(bingoCardNum.id).bgColor = '#0facaa'
+			document.getElementById(bingoCardNum.id).bgColor = '#0facaa'
 			}
 	//get all of the elements of the pickednum2 class (numbers that are on the computer bingo card)
 		const bingoCardNums2 = document.querySelectorAll('.pickedNum2');
@@ -51,7 +51,7 @@ function numClear(){
 	//get each element of the class and change the color back and classname back to default
 		for(let bingoCardNum2 of bingoCardNums2) {
 			document.getElementById(bingoCardNum2.id).className = 'bingoCardNum'
-			//document.getElementById(bingoCardNum2.id).bgColor = '#0facaa'
+			document.getElementById(bingoCardNum2.id).bgColor = '#0facaa'
 		}
 	//get all of the elements of the bingoNums class  (all numbers that were called))
 		const calledNumstable = document.querySelectorAll('.bingoNums');
@@ -132,7 +132,7 @@ function anotherCard() {
 		usedNumsPlayer2[i] = false;
 		}
 		newCard();
-		//return false;
+		return false;
 }
 
 function checkWin() {
@@ -256,7 +256,7 @@ function setCallNumTimer(){
 	
 	//const element = document.getElementById("play");
 
-
+}
 // ***********************Player 2 code************************
 
 function setSquarePlayer2(squareNumber) {
